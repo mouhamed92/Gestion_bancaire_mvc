@@ -42,7 +42,7 @@ public class GestionBancaireApplication implements CommandLineRunner {
 		Client c1 = clienRepository.save(new Client("mohamed", "mohamed@hotmail.com"));
 		Client c2 = clienRepository.save(new Client("aala", "aala@gmail.com") );
 		
-		Compte cp1 = compteRepository.save(new CompteCourant("c1", new Date(), 9000, c1)) ;
+		Compte cp1 = compteRepository.save(new CompteCourant("c1", new Date(), 9000, c1,500)) ;
 		Compte cp2 = compteRepository.save(new CompteEpargne("c2", new Date(), 5000, c2,5.5)) ;
 		
 		operationRepository.save(new Versement(new Date(), 100, cp1));
