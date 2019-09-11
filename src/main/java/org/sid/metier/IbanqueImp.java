@@ -61,6 +61,9 @@ public class IbanqueImp implements IbanqueMetier {
 
 	@Override
 	public void virement(String CodeCpte1, String CodeCpte2, double montant) {
+		
+		if(CodeCpte1.equals(CodeCpte2))
+			throw new RuntimeException("operation impossible");
 		retirer(CodeCpte1, montant);
 		verser(CodeCpte2, montant);
 		
