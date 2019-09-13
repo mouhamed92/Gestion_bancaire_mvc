@@ -55,7 +55,7 @@
 			<div class="panel panel-primary" th:if="${compte}">
 				<div class=" panel-heading">Operation sur le compte</div>
 				<div class="panel-body">
-				 <form th:action="@{/operation}" method="post">
+				 <form th:action="@{/saveoperation}" method="post">
 				   <div>
 				    <label>Compte </label>
 				    <input type="hidden" name="codeCpte" th:value="${codeCpte}"/>
@@ -96,6 +96,13 @@
 						  <th th:text="${o.montant}"></th>
 						</tr>
 					</table>
+				</div>
+				<div class="container">
+				  <ul class="nav nav-pills">
+				   <li th:each="p,status:${pages}">
+				      <a th:href="@{/consulterCpte(codeCpte=${codeCpte},page=${status.index})}" th:text="${status.index}"> </a>  
+				   </li>
+				  </ul>
 				</div>
 			</div>
 		</div>
