@@ -69,12 +69,7 @@ public class BanueController {
 		return "redirect:/consulterCpte?codeCpte="+codeCpte ;
 		
 	}
-	
-	@RequestMapping("/")
-	public String home(){
-		return "index";
-		
-	}
+
 	
 	
 }

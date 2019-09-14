@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorator="template1">
+	layout:decorator="template1"
+	xmlns:sec="http://ww.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
 <meta charset="UTF-8" />
 <link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css"
@@ -50,14 +51,14 @@
 			</div>
 
 		</div>
-		<div class="col-md-6">
-
+		<div class="col-md-6" >
+			<div sec:authorize="hasRole('ROLE_ADMIN')">
 			<div class="panel panel-primary" th:if="${compte}">
 				<div class=" panel-heading">Operation sur le compte</div>
 				<div class="panel-body">
 				 <form th:action="@{/saveoperation}" method="post">
 				   <div>
-				    <label>Compte </label>
+				    <label>Compte </label> 
 				    <input type="hidden" name="codeCpte" th:value="${codeCpte}"/>
 				    <label th:text="${codeCpte}"></label>
 				   </div>
@@ -80,6 +81,7 @@
 				   </div>
 				   <button class="btn btn-primary">save</button>
 				 </form>
+				</div>
 				</div>
 			</div>
 			<div class="panel panel-primary" th:if="${compte}">
